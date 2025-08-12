@@ -4,7 +4,7 @@ A note that is always on the screen.
 
 I use it in workshops and presentations when I want to always display some information on the screen.
 
-![Always note](docs/note.png)
+![Always note](https://raw.githubusercontent.com/martinohanlon/always_note/main/docs/note.png)
 
 The text will automatically scale to the size of the note window.
 
@@ -57,8 +57,7 @@ python run.py --text "Your note here"
 Install the build tools:
 
 ```bash
-pip install setuptools[core]
-pip install build
+pip install setuptools[core] build twine
 ```
 
 To build the package, run:
@@ -67,10 +66,16 @@ To build the package, run:
 python -m build
 ```
 
+To deploy the package to PyPI, run:
+
+```bash
+twine upload dist/*
+```
+
 ## Status
 
 Beta - Working. A bit "cobbled together". I use it tho!
 
 ## Change log
 
-- no releases yet
+- 0.0.1 - 2025-08-12 - Initial release
