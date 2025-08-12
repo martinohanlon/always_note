@@ -4,7 +4,7 @@ A note that is always on the screen.
 
 I use it in workshops and presentations when I want to always display some information on the screen.
 
-![Always note](https://raw.githubusercontent.com/martinohanlon/always_note/main/docs/note.png)
+![Always note](https://raw.githubusercontent.com/martinohanlon/always_note/refs/heads/main/docs/note.png)
 
 The text will automatically scale to the size of the note window.
 
