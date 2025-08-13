@@ -8,7 +8,7 @@ I use it in workshops and presentations when I want to always display some infor
 
 The text will automatically scale to the size of the note window.
 
-You can modify the color and font by right-clicking on the window.
+You can modify the colors and font by right / two-finger clicking on the text.
 
 ## Install
 
@@ -79,3 +79,4 @@ Beta - Working. A bit "cobbled together". I use it tho!
 ## Change log
 
 - 0.0.1 - 2025-08-12 - Initial release
+- 0.0.2 - 2025-08-13 - Updates for MacOS, improve settings window

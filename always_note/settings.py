@@ -29,7 +29,6 @@ class Settings:
         )
         self._window.hide()
         self._window.icon = str(files('always_note').joinpath('settings.gif'))
-        self._window.tk.attributes('-topmost', self.on_top)
         self._window.when_closed = self.close
 
         Text(self._window, "Always on top?", grid=[0, 0], align="right")

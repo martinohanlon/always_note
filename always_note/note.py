@@ -1,10 +1,12 @@
-from guizero import App, TextBox, Window, Combo, Text, CheckBox
+import sys
+from guizero import App, TextBox
 from tkinter.font import Font
 from threading import Event
 from importlib.resources import files
 
 from .settings import Settings
 
+MACOS = True if sys.platform == "darwin" else False
 MIN_TEXT = 6
 MAX_TEXT = 150
 RESIZE_DELAY = 300
@@ -36,6 +38,8 @@ class Note:
         
         # Setup events
         self._text.when_right_button_released = self._open_settings
+        if MACOS:
+            self._text.events.set_event("<macos-2-finger-press>", "<ButtonPress-2>", self._open_settings)
         self._app.when_resized = self._app_resized
         self._app.when_closed = self.close
 
@@ -79,7 +83,14 @@ class Note:
         
         self._text.text_size = i - 5
 
+    def _set_on_top(self, on_top):
+        self._app.tk.attributes(
+            '-topmost', 
+            on_top
+        )
+
     def _open_settings(self):
+        self._set_on_top(False)
         self._settings.open()
 
     def _update_font_settings(self):
@@ -90,10 +101,7 @@ class Note:
 
     def _update_settings(self):
         self._update_font_settings()
-        self._app.tk.attributes(
-            '-topmost', 
-            self._settings.on_top
-        )
+        self._set_on_top(self._settings.on_top)
 
     def _show_title_bar(self):
         # disable the events
@@ -128,7 +136,8 @@ class Note:
         )
 
     def display(self):
-        self._hide_title_bar()
+        if not MACOS:
+            self._hide_title_bar()
         self._update_settings()
         self._resize_text()
         self._app.display()
